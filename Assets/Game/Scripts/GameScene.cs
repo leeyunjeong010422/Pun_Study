@@ -65,21 +65,23 @@ public class GameScene : MonoBehaviourPunCallbacks
     {
         Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0.398f, Random.Range(-5f, 5f));
 
-        PhotonNetwork.Instantiate("GameObject/Player", randomPos, Quaternion.identity);
+        PhotonNetwork.Instantiate("GameObject/TPS Player", randomPos, Quaternion.identity);
     }
 
     // 플레이어 리스폰 함수
-    public void RespawnPlayer(PlayerController player)
+    public void RespawnPlayer(TPS_PlayerController player)
     {
         StartCoroutine(RespawnCoroutine(player));
     }
 
     //플레이어가 죽으면 사용되는 코루틴 (3초 후 리스폰)
-    private IEnumerator RespawnCoroutine(PlayerController player)
+    private IEnumerator RespawnCoroutine(TPS_PlayerController player)
     {
         yield return new WaitForSeconds(3f);
 
         Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0.398f, Random.Range(-5f, 5f));
         player.photonView.RPC("RespawnPlayer", RpcTarget.All, randomPos);
     }
+
+
 }

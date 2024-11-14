@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         GameScene scene = FindObjectOfType<GameScene>();
         if (scene != null)
         {
-            scene.RespawnPlayer(this);
+            //scene.RespawnPlayer(this);
         }
     }
 

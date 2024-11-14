@@ -46,6 +46,6 @@ public class TestGameScene : MonoBehaviourPunCallbacks
         Vector3 randomPos = new Vector3(Random.Range(-5f, 5f), 0.3980001f, Random.Range(-5f, 5f));
        
         //플레이어 생성 요청
-        PhotonNetwork.Instantiate("GameObject/Player", randomPos, Quaternion.identity);
+        PhotonNetwork.Instantiate("GameObject/TPS Player", randomPos, Quaternion.identity);
     }
 }
